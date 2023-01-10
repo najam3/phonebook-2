@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/016436a714.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <nav>
+          <ul class="tabs">
+            <li id="contacts">
+              <a href="#contacts" id="contacts" class="active">Contacts</a>
+            </li>
+            <li id="recently-added"><a href="#added">Recently Added</a></li>
+            <li><a href="#">Important Contacts</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <div id="contacts" data-id="contacts" class="contacts">
+          <div class="header">
+            <h1>All contacts displayed here</h1>
+
+            <div class="form">
+          
+            <input
+            type="search"
+            name="search-contacts"
+            placeholder="search"
+            id="contact-list"
+          /> 
+          <div class="trash-icon"><i class="fa fa-trash"></i></div>
+            <input
+               type="button" 
+               class="add-num-modal" 
+               value="&plus;"
+               title="Add a new number" 
+               id="open-modal"
+               />
+              <!--  Modal Here   -->
+             <div class="modal dp-none">
+                <div class="close-btn">&times;</div>
+               <form action="">
+                <label for="name">Enter Name</label>
+                <input  type="text" name="contact-name" id="name" required>
+                <label for="number">Enter Number</label>
+                <input type="number" name="contact-no" id="number" required="true">
+                <textarea name="description" id="description" cols="20" rows="10"></textarea>
+                <input type="file" name="file" id="add-file">
+                <button id="submit-btn">Add</button>
+               </form>
+             </div>  
+             <!--  Show Image -->
+             <div class="show-img dp-none"><span class="close-img">&times;</span></div>
+           
+            </div>
+          </div>
+          <div class="contact" style="display: none;">
+            <img
+              src=""
+              height="50px"
+              style="border-radius: 50%"
+              width="50px"
+              alt=""
+              
+            />
+            <div class="contact-info">
+              <span id="name"></span>
+              <span id="number"></span>
+             <dl id="description"></dl>
+            </div>
+          </div>
+
+        </div>
+        <div
+          style="color: white; display: none"
+          data-id="added"
+          id="added"
+          class="added"
+        >
+          <p>Hello bobo</p>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
