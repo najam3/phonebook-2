@@ -1,1 +1,1 @@
-
+This is a demo project based on the local storage api, it's a quick prototype on how to use this api to create, read, update and delete data. The application needs some work. So I will be updating it on a regular basis. There will be features like filter or search contacts by their names, upload images to the app.
