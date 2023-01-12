@@ -47,14 +47,14 @@
               <!--  Modal Here   -->
              <div class="modal dp-none">
                 <div class="close-btn">&times;</div>
-               <form action="">
+               <form id="form" action="">
                 <label for="name">Enter Name</label>
                 <input  type="text" name="contact-name" id="name" required>
                 <label for="number">Enter Number</label>
                 <input type="number" name="contact-no" id="number" required="true">
                 <textarea name="description" id="description" cols="20" rows="10"></textarea>
                 <input type="file" name="file" id="add-file">
-                <button id="submit-btn">Add</button>
+                <button type="submit" id="submit-btn">Add</button>
                </form>
              </div>  
              <!--  Show Image -->
@@ -62,20 +62,9 @@
            
             </div>
           </div>
-          <div class="contact" style="display: none;">
-            <img
-              src=""
-              height="50px"
-              style="border-radius: 50%"
-              width="50px"
-              alt=""
-              
-            />
-            <div class="contact-info">
-              <span id="name"></span>
-              <span id="number"></span>
-             <dl id="description"></dl>
-            </div>
+          <div class="contact">
+           
+           <div class="count"></div>
           </div>
 
         </div>

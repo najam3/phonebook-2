@@ -102,7 +102,7 @@ main > .contacts > .header > .form > input.add-num-modal {
 
 main > .contacts > .header > .form > .modal {
     width: 500px;
-    height: 300px;
+    height: 350px;
     position: absolute;
     left: 50%;
     top: 50%; 
@@ -177,15 +177,41 @@ main > .contacts > .header > .form > input#contact-list::placeholder {
 main > .contacts > .contact {
     display: flex;
     align-items: center;
-    background-color: rgb(255, 255, 255);
+    flex-direction: column;
+    
     padding-block: 1em;
    margin-inline: 2em;
    margin-block: 2em;
     transition: .5s;
+    color: white;
+ 
+    padding-inline-start: 1em;
 }
-main > .contacts > .contact:hover {
-    background: rgba(255, 255, 255, 0.921);
-    cursor: pointer;
+main > .contacts > .contact > li {
+    background-color: blue;
+    margin: 2em 0;
+    list-style: none;
+    width: 100%;
+    padding: 1em 0.5em;
+}
+
+
+.count {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    margin-inline-end: 4em;
+}
+main > .contacts > .contact > li > span {
+background-color: white;
+color: black;
+padding: 0.5em;
+border-radius: 5px;
+}
+
+main > .contacts > .contact > li > b {
+    font-size: 18px;
 }
 main > .contacts > h1 {
     color: white;
@@ -193,7 +219,8 @@ main > .contacts > h1 {
 
 
 main > .contacts > .contact img {
-    margin-inline-start: 1em;
+margin-inline-end: 1em;
+margin-block-end: 1em;
 }
 
 
