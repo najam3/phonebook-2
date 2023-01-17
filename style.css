@@ -102,7 +102,7 @@ main > .contacts > .header > .form > input.add-num-modal {
 
 main > .contacts > .header > .form > .modal {
     width: 500px;
-    height: 350px;
+    height: 500px;
     position: absolute;
     left: 50%;
     top: 50%; 
@@ -187,14 +187,54 @@ main > .contacts > .contact {
  
     padding-inline-start: 1em;
 }
-main > .contacts > .contact > li {
-    background-color: blue;
+main > .contacts > .contact > li  {
+    background-color: rgb(152, 152, 152);
+    margin: 2em 0;
+    list-style: none;
+    width: 100%;
+    padding: 1.5em 0.5em;
+    border-radius: 12px;
+    color: black;
+}
+
+main > .added > li  {
+    background-color: rgb(152, 152, 152);
     margin: 2em 0;
     list-style: none;
     width: 100%;
     padding: 1em 0.5em;
+    border-radius: 12px;
+    color: black;
 }
 
+
+main > .added {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    padding-block: 1em;
+   margin-inline: 2em;
+   margin-block: 2em;
+    transition: .5s;
+    color: white;
+ 
+    padding-inline-start: 1em;
+}
+
+
+
+
+li > #del-btn {
+ display: none;
+ padding: 0.6em;
+ border-radius:  45%;
+ position: absolute;
+ right: 0;
+ margin-inline-end: 5em;
+ background-color: black;
+ color: white;
+} 
 
 .count {
     color: rgb(255, 255, 255);
@@ -217,11 +257,27 @@ main > .contacts > h1 {
     color: white;
 }
 
+.trash-icon:hover {
+  background-color: red;
+  cursor: pointer;
+}
 
+.add-num-modal:hover {
+color: red;
+}
 main > .contacts > .contact img {
 margin-inline-end: 1em;
 margin-block-end: 1em;
 }
+
+li > #fav-btn {
+color: white;
+
+font-size: 22px;
+background-color: black;
+
+}
+
 
 
 main > .contacts > .contact > .contact-info {

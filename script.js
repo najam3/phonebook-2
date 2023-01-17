@@ -51,68 +51,90 @@ let name = $("#name").val();
 let number = $("#number").val();
 let description = $("#description").val();
 
-
 localStorage.setItem(name, JSON.stringify({number, description}));
 $("#form").hide();
 window.location.reload();
+$(".count").html(count)
 })
 }) 
 
 window.addEventListener("load", () => {
 
-
 for(let key in localStorage){
    let contacts = JSON.parse(localStorage.getItem(key));
+   let time = new Date().getMilliseconds();
+       console.log(time);
     $(".contact").append(
-`<li><b>Name:</b> &nbsp;   ${key}<br> <br> 
-<b> Number:</b> &nbsp;  ${contacts.number} <br> <br> <br>
-<b> Description:</b> &nbsp; <span> &#128509; ${contacts.description}</span></li> 
+`<li id="contact-shown"><b>Name:</b> &nbsp;   ${key}  <br> <br> 
+<b> Number:</b> &nbsp;  ${contacts.number} </span><button id="del-btn">&times;</button> <br> <br> 
+<b> Description:</b> &nbsp; <span> &#128509; ${contacts.description}</li>
+
 `
-    )
-    const elem = document.querySelector(".contact")
-let count = elem.children;
+    );
+      $("#added").append(
+         `<li id="contact-shown"><b>Name:</b> &nbsp;   ${key}  <br> <br> 
+         <b> Number:</b> &nbsp;  ${contacts.number} </span><button id="del-btn">&times;</button> <br> <br> 
+         <b> Description:</b> &nbsp; <span> &#128509; ${contacts.description}</li>
+         
+         `
+             )
+    }
 
-console.log(count.length);
+  setInterval(() => {
+     $("#added:#contact-shown").hide();
+  }, 5000)    
+
 $(".count").html(`${count.length - 1} &#9743;`)
-}
-
-
 })
 
 
-$(function search(){
-   $("#contact-list").on("change", function() {
-      var inputValue = $(this).val();
-   
-      // Do something with the input value
-      for (let key in localStorage) {
-   let contacts = JSON.parse(localStorage.getItem(key));
-          if(key.toLowerCase() === inputValue){
-            $(".contact").html(
-               `<li><b>Name:</b> &nbsp;   ${key}<br> <br> 
-               <b> Number:</b> &nbsp;  ${contacts.number} <br> <br> <br>
-               <b> Description:</b> &nbsp; <span> &#128509; ${contacts.description}</span></li> 
-               `
-                   )
-         } else if(inputValue === "") {
-            window.location.reload();
-         }
-      }
 
+$(function search(){
+   $("#contact-list").on("input", function() {
+        var inputValue = $(this).val();
+      
+     for(let key in localStorage) {
+      
+ let contacts = JSON.parse(localStorage.getItem(key));    
+    if(key.toLowerCase().match(inputValue)){
+  
+      $(".contact").html(
+        `<li id="contact-shown"><b>Name:</b> &nbsp;   ${key}<br> <br> 
+        <b> Number:</b> &nbsp;  ${contacts.number} </span><button id="del-btn">&times;</button> <br> <br> 
+        <b> Description:</b> &nbsp; <span> &#128509; ${contacts.description}</li>
+        
+        `)
+        $("#added").html(
+         `<li id="contact-shown"><b>Name:</b> &nbsp;   ${key}<br> <br> 
+         <b> Number:</b> &nbsp;  ${contacts.number} </span><button id="del-btn">&times;</button> <br> <br> 
+         <b> Description:</b> &nbsp; <span> &#128509; ${contacts.description}</li>
+         
+         `)
+    } 
+   }
+       
+  
+             
     });
     
 })
 
 
+   $(function del(){
+      $("#trash").click(function(){
+      
+        $("#del-btn").toggle('fast').click(function(){
+          for(let key in localStorage) {
+            if($(this).parent().html().includes(key)){
+               localStorage.removeItem(key);
+               $(this).parent().hide('fast');
+             window.location.reload()
+            }
+         }    
+        });
+      })
+   })
 
-const elem = document.querySelector(".contact");
 
-let childElem = elem.children;
- console.log(childElem.length);
 
-   for(let i = 0; i <= childElem.length; i++) 
-   {
-
-       console.log(childElem[i]);
-
-   }
+   
